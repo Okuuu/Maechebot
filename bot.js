@@ -16,4 +16,5 @@ class MyClient extends AkairoClient {
 }
 
 const client = new MyClient();
-client.login("ODI0MzQzMDY2NjM0MzU0Njg4.YFt_Tg.-2JgHLilb0NEBHIK76jHBjcC2CI");
+client.login(""); //enter token here
+
