@@ -8,3 +8,6 @@ Thumbs.db
 
 #build
 /build
+src/env.ts
+env.js
+# env.ts

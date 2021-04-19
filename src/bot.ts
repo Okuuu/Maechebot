@@ -1,6 +1,7 @@
-import { AkairoClient, CommandHandler, InhibitorHandler } from "discord-akairo";
+import { AkairoClient, CommandHandler, InhibitorHandler } from 'discord-akairo';
+import { environment } from './env';
 // import { Socket } from "socket.io-client";
-declare module "discord-akairo" {
+declare module 'discord-akairo' {
   interface AkairoClient {
     commandHandler: CommandHandler;
     inhibitorHandler: InhibitorHandler;
@@ -15,19 +16,19 @@ export class Client extends AkairoClient {
   constructor() {
     super();
     this.commandHandler = new CommandHandler(this, {
-      directory: __dirname + "/commands",
+      directory: __dirname + "/src/commands",
       prefix: "!",
-      loadFilter(file) {
+      loadFilter(file: any) {
         return file.endsWith(".js");
       },
     });
     this.inhibitorHandler = new InhibitorHandler(this, {
-      directory: __dirname + "/inhibitors",
+      directory: __dirname + "/src/inhibitors",
     });
     this.commandHandler.loadAll();
     this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
     this.inhibitorHandler.loadAll();
-    require("dotenv").config();
+    // require("dotenv").config();
     // this.io = require("socket.io-client").connect("http://localhost:3000", {
     //   reconnection: true,
     //   reconnectionDelay: 2000,
@@ -41,7 +42,8 @@ export class Client extends AkairoClient {
 }
 (async () => {
   try {
-    await new Client().login(process.env.bot_token);
+    console.log(environment.token);
+    await new Client().login(environment.token);
     console.log("bot awake");
   } catch (e) {
     console.error(e);

@@ -3,7 +3,7 @@
       "module": "commonjs",
       "target": "es2019",
       "rootDir": "./src",
-      "outDir": "./build",
+      "outDir": "./",
       "sourceMap": false,
       "strict": true,
       "noImplicitReturns": true,
@@ -12,9 +12,9 @@
       "strictNullChecks": true
     },
     "exclude": [
-      "node_modules"
+      "node_modules",
     ],
     "include": [
       "src/**/*"
-, "bot.js"    ]
+    ]
   }
