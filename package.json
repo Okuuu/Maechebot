@@ -2,14 +2,11 @@
   "name": "maechebot",
   "version": "0.0.0",
   "description": "Un bot, un Maecheneb",
-  "module": "commonjs",
-  "main": "bot.js",
+  "main": "build/bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "test": "echo 'coucou'",
-    "build": "tsc",
-    "dev": "nodemon -e ts --exec \"npm run build && npm start\"",
-    "dev2": "tsc-watch --noClear --onSuccess \"npm run start\""
+    "start": "node build/bot.js",
+    "build": "tsc-watch --noClear --onSuccess \"npm run start\"",
+    "clean": "rm -rf build"
   },
   "repository": {
     "type": "git",
